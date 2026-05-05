@@ -1,0 +1,63 @@
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\appsettings.Development.json
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\appsettings.json
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.staticwebassets.runtime.json
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.exe
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.deps.json
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.runtimeconfig.json
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.dll
+D:\Documents\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.pdb
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.AssemblyInfoInputs.cache
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.AssemblyInfo.cs
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.csproj.CoreCompileInputs.cache
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.RazorAssemblyInfo.cache
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.RazorAssemblyInfo.cs
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.build.json
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.development.json
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets\msbuild.BTreeDashboard.Web.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets\msbuild.build.BTreeDashboard.Web.props
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BTreeDashboard.Web.props
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BTreeDashboard.Web.props
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\scopedcss\bundle\BTreeDashboard.Web.styles.css
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\scopedcss\projectbundle\BTreeDashboard.Web.bundle.scp.css
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.dll
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\refint\BTreeDashboard.Web.dll
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.pdb
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.genruntimeconfig.cache
+D:\Documents\bentest\BTreeDashboard.Web\obj\Debug\net8.0\ref\BTreeDashboard.Web.dll
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\appsettings.Development.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\appsettings.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.staticwebassets.runtime.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.staticwebassets.endpoints.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.exe
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.deps.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.runtimeconfig.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.dll
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\bin\Debug\net8.0\BTreeDashboard.Web.pdb
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\rpswa.dswa.cache.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.GeneratedMSBuildEditorConfig.editorconfig
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.AssemblyInfoInputs.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.AssemblyInfo.cs
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.csproj.CoreCompileInputs.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.MvcApplicationPartsAssemblyInfo.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.RazorAssemblyInfo.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.RazorAssemblyInfo.cs
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\rjimswa.dswa.cache.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\scopedcss\bundle\BTreeDashboard.Web.styles.css
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\scopedcss\projectbundle\BTreeDashboard.Web.bundle.scp.css
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.build.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.build.json.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.development.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\swae.build.ex.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.dll
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\refint\BTreeDashboard.Web.dll
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.pdb
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\BTreeDashboard.Web.genruntimeconfig.cache
+F:\Dowloads\ĐỒ ÁN\bentest (1)\bentest\BTreeDashboard.Web\obj\Debug\net8.0\ref\BTreeDashboard.Web.dll

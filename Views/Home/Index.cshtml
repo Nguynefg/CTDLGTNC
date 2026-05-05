@@ -1,0 +1,257 @@
+﻿@using BTreeDashboard.Web.Models
+@{
+    ViewData["Title"] = "B-Tree Analyzer Dashboard";
+    Layout = null; 
+    var jsonData = ViewBag.JsonData ?? "[]";
+    bool isMultiple = ViewBag.IsMultiple ?? false;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root { --primary-color: #4f46e5; --bg-body: #f8fafc; --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        body { background: var(--bg-body); font-family: 'Inter', sans-serif; color: #1e293b; padding: 2rem 0; }
+        .stat-card { border: none; border-radius: 16px; background: #ffffff; box-shadow: var(--card-shadow); transition: transform 0.2s; }
+        .card-label { color: #64748b; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.25rem; }
+        .card-data { font-size: 1.5rem; font-weight: 700; color: #0f172a; }
+        .chart-container { background: #ffffff; padding: 1.2rem; border-radius: 16px; box-shadow: var(--card-shadow); height: 350px; margin-bottom: 1rem; }
+        .table-container { border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background: white; margin-bottom: 2rem; }
+        .font-monospace { font-family: 'Fira Code', monospace !important; font-size: 0.82rem; }
+        pre { background: #0f172a; color: #38bdf8; padding: 1.2rem; border-radius: 12px; font-size: 0.75rem; max-height: 300px; border: 1px solid #1e293b; overflow-y: auto; }
+        #loadingOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 9999; backdrop-filter: blur(4px); }
+    </style>
+</head>
+<body>
+
+<div id="loadingOverlay" class="flex-column align-items-center justify-content-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-3 fw-bold">Đang phân tích dữ liệu...</p>
+</div>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2 class="fw-bold"><i class="bi bi-cpu text-primary"></i> B-Tree Performance Dashboard</h2>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-3">
+            <div class="card stat-card p-3 border-0">
+                <form method="post" asp-action="Search" id="benchmarkForm">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Kỹ thuật</label>
+                        <select name="technique" class="form-select form-select-sm shadow-sm">
+                            <option value="1" selected="@(ViewBag.Technique == 1)">STD (Standard)</option>
+                            <option value="2" selected="@(ViewBag.Technique == 2)">HEAD Compression</option>
+                            <option value="3" selected="@(ViewBag.Technique == 3)">TAIL Compression</option>
+                            <option value="4" selected="@(ViewBag.Technique == 4)">HEAD & TAIL</option>
+                            <option value="5" selected="@(ViewBag.Technique == 5)">DB2 Style</option>
+                            <option value="6" selected="@(ViewBag.Technique == 6)">MyISAM Style</option>
+                            <option value="7" selected="@(ViewBag.Technique == 7)">PKB (Prefix Key)</option>
+                            <option value="8" selected="@(ViewBag.Technique == 8)">WT (WiredTiger)</option>
+                            <option value="9" selected="@(ViewBag.Technique == 9)">🚀 ALL (So sánh tất cả)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Số lượng dòng</label>
+                        <input type="number" name="n_rows"
+                        value="@(ViewBag.NRows ?? 1000000)"
+                        class="form-control form-control-sm shadow-sm" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Từ khóa</label>
+                        <input type="text" placeholder="Nhập từ khóa để tìm kiếm" name="keyword"
+                            value="@(ViewBag.Keyword ?? "")"
+                            class="form-control form-control-sm shadow-sm" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm w-100 fw-bold shadow">CHẠY PHÂN TÍCH</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            @if (ViewBag.Rows != null)
+            {
+                @if (isMultiple)
+                {
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="chart-container">
+                                <h6 class="fw-bold small text-center text-warning">Insert Time (Seconds)</h6>
+                                <canvas id="insertChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="chart-container">
+                                <h6 class="fw-bold small text-center text-info">Search Time (Seconds)</h6>
+                                <canvas id="searchChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="chart-container" style="height: 300px;">
+                                <h6 class="fw-bold small text-center text-primary">Memory Ratio (%)</h6>
+                                <canvas id="ratioChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light small text-uppercase">
+                                <tr>
+                                    <th class="ps-3">Tree Type</th>
+                                    <th>Insert (s)</th>
+                                    <th>Search (s)</th>
+                                    <th>RAM (Tree/Raw MB)</th>
+                                    <th>Ratio (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in (List<BenchmarkResult>)ViewBag.DetailedResults)
+                                {
+                                    <tr>
+                                        <td class="ps-3 fw-bold">@item.tree</td>
+                                        <td class="font-monospace text-warning">@item.insert_s.ToString("F6")</td>
+                                        <td class="font-monospace text-info">@item.search_s.ToString("F9")</td>
+                                        <td class="font-monospace">
+                                            <span class="text-primary">@item.tree_mb.ToString("F2")</span> / 
+                                            <span class="text-muted">@item.raw_mb.ToString("F2")</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge @(item.ratio_percent > 150 ? "bg-danger" : "bg-success")">
+                                                @item.ratio_percent.ToString("F1")%
+                                            </span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card stat-card border-0">
+                    <div class="card-header bg-white py-2 fw-bold small border-0">System Log</div>
+                    <pre id="logArea">@ViewBag.Raw</pre>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('benchmarkForm').addEventListener('submit', () => {
+        document.getElementById('loadingOverlay').style.display = 'flex';
+    });
+
+    @if (isMultiple && ViewBag.JsonData != null)
+    {
+        <text>
+        const rawData = @Html.Raw(jsonData);
+        const labels = rawData.map(item => item.tree);
+
+        // Biểu đồ Insert
+        new Chart(document.getElementById('insertChart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Insert Time',
+                    data: rawData.map(item => item.insert_s),
+                    backgroundColor: '#f59e0b',
+                    borderRadius: 5
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+
+        // Biểu đồ Search
+        new Chart(document.getElementById('ratioChart'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Memory Ratio (%)',
+            data: rawData.map(item => item.ratio_percent),
+            backgroundColor: '#6366f1',
+            borderRadius: 5
+        }]
+    },
+    options: { 
+        responsive: true, 
+        maintainAspectRatio: false, 
+        plugins: { 
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: (context) => ` Ratio: ${context.parsed.y.toFixed(2)} %`
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+        // Biểu đồ Ratio
+        // Biểu đồ Search
+new Chart(document.getElementById('searchChart'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Search Time (s)',
+            data: rawData.map(item => item.search_s),
+            backgroundColor: '#0ea5e9',
+            borderRadius: 5
+        }]
+    },
+    options: { 
+        responsive: true, 
+        maintainAspectRatio: false, 
+        plugins: { 
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    // Hiển thị số thập phân đầy đủ khi di chuột vào cột
+                    label: (context) => ` Search: ${context.parsed.y.toFixed(9)} s`
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    // Ép kiểu hiển thị trục Y thành số thập phân 9 chữ số
+                    callback: function(value) {
+                        return value.toFixed(9);
+                    },
+                    color: '#64748b',
+                    font: { size: 10 }
+                }
+            }
+        }
+    }
+});
+        </text>
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BTreeDashboard.Web/1.0.0": {
+        "runtime": {
+          "BTreeDashboard.Web.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BTreeDashboard.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
